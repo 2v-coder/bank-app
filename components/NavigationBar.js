@@ -54,6 +54,7 @@ export default function NavigationBar(props) {
 
 const styles = StyleSheet.create({
   navigationbar: {
+    display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 30,
@@ -63,5 +64,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     paddingVertical: 15,
     backgroundColor: "white",
+    // marginBottom: 25,
   },
 });

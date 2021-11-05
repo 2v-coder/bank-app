@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  SafeAreaView,
 } from "react-native";
 import faker from "faker";
 import Notification from "../components/Notification";
@@ -19,6 +20,9 @@ export default function Recent({ navigation }) {
     return {
       key: faker.datatype.uuid(),
       name: faker.name.findName(),
+      image: `https://randomuser.me/api/portraits/men/${faker.datatype.number(
+        60
+      )}.jpg`,
       amount: Math.floor(Math.random() * 10000),
     };
   });
@@ -47,11 +51,11 @@ export default function Recent({ navigation }) {
     });
   }, [navigation]);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="transparent" />
       <View
         style={{
-          marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 40,
+          marginTop: 20,
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
@@ -62,7 +66,6 @@ export default function Recent({ navigation }) {
           <Text style={{ fontSize: 26, fontWeight: "bold" }}>
             Recent Transactions
           </Text>
-          <Text style={{ fontSize: 16 }}>Vahan Gevorgyan</Text>
         </View>
       </View>
       <View style={styles.notificationsView}>
@@ -84,16 +87,17 @@ export default function Recent({ navigation }) {
             return (
               <Notification
                 title={item.name.substring(0, 20)}
-                text={`Sent at: ${randomTime()}`}
+                text={`Sent $${item.amount} at: ${randomTime()}`}
                 amount={`$${item.amount}.00`}
-                readMore="View history"
+                readMore="View History"
+                image={item.image}
               />
             );
           }}
         />
       </View>
       <NavigationBar active="recent" navigation={navigation} />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -105,6 +109,6 @@ const styles = StyleSheet.create({
   },
   notificationsView: {
     marginTop: 20,
-    paddingBottom: 200,
+    paddingBottom: 160,
   },
 });

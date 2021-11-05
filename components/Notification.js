@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Alert,
+  Image,
+} from "react-native";
 
 export default function Notification(props) {
   const [isClosed, setClosed] = useState(true);
@@ -23,7 +30,17 @@ export default function Notification(props) {
               <Text style={styles.messageClose}>Close</Text>
             </TouchableOpacity>
           ) : (
-            <Text style={styles.messageClose}>{props.amount}</Text>
+            // <Text style={styles.messageClose}>{props.amount}</Text>
+            <Image
+              source={{
+                uri: props.image,
+              }}
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 50,
+              }}
+            />
           )}
         </View>
       </View>
@@ -79,5 +96,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 10,
+    alignItems: "center",
   },
 });

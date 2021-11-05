@@ -6,6 +6,7 @@ import {
   StatusBar,
   Image,
   Platform,
+  SafeAreaView,
 } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { AntDesign } from "@expo/vector-icons";
@@ -50,11 +51,11 @@ export default function Home({ navigation }) {
     return <AppLoading />;
   } else {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <StatusBar barStyle="dark-content" backgroundColor="transparent" />
         <View
           style={{
-            marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 40,
+            marginTop: 20,
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
@@ -192,7 +193,7 @@ export default function Home({ navigation }) {
           readMore="Read More..."
         />
         <NavigationBar active="home" navigation={navigation} />
-      </View>
+      </SafeAreaView>
     );
   }
 }

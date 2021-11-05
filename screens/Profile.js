@@ -1,12 +1,21 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 
 export default function Profile() {
   return (
-    <View>
-      <Text>Profile</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text>Profile Screen</Text>
+      <Text>Under Development</Text>
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flex: 1,
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
