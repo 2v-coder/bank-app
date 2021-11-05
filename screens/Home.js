@@ -5,6 +5,7 @@ import {
   View,
   StatusBar,
   Image,
+  ScrollView,
   Platform,
   SafeAreaView,
 } from "react-native";
@@ -101,7 +102,7 @@ export default function Home({ navigation }) {
               <Text
                 style={{ color: "white", fontSize: 28, fontWeight: "bold" }}
               >
-                $383545.00
+                $383545.46
               </Text>
             </View>
             <View style={styles.buttonSection}>
@@ -185,13 +186,27 @@ export default function Home({ navigation }) {
             />
           </View>
         </View>
-        <Notification
-          title="News"
-          text="Jack Dorsey Says Square Is Considering Building a 'Bitcoin Mining System
+        <ScrollView>
+          <View
+            style={{
+              paddingBottom: 20,
+            }}
+          >
+            <Notification
+              title="Incoming Payments"
+              text="0 of 14 installments"
+              paidtext="$0.00 of $45.30 paid"
+              isList={true}
+            />
+            <Notification
+              title="News"
+              text="Jack Dorsey Says Square Is Considering Building a 'Bitcoin Mining System
         Based on Custom Silicon'"
-          isCloseNeeded={true}
-          readMore="Read More..."
-        />
+              isCloseNeeded={true}
+              readMore="Read More..."
+            />
+          </View>
+        </ScrollView>
         <NavigationBar active="home" navigation={navigation} />
       </SafeAreaView>
     );

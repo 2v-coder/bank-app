@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   notificationsView: {
-    marginTop: 20,
+    marginTop: 10,
     paddingBottom: 160,
   },
 });
